@@ -8,7 +8,7 @@ const app = express();
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
-
+const PORT = process.env.PORT || 3000;
 //Setup handlebars engine
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
@@ -75,7 +75,6 @@ app.get("*", (req, res) => {
     name: "JS",
   });
 });
-
-app.listen("3000", () => {
-  console.log("Port Listening...!");
+app.listen(PORT, () => {
+  console.log(`Port Listening at ...! ${PORT}`);
 });
