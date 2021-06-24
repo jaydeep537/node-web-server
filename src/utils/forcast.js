@@ -1,6 +1,6 @@
 const request = require("request");
 const forCast = (letitude, longitude, cb) => {
-  const url = `http://api.weatherstack.com/current?access_key=9fad60ea9c5064d30d66c6c0a0fa2ab1&query=${letitude},${longitude}&units=m`;
+  const url = `http://api.weatherstack.com/current?access_key=9fad60ea9c5064d30d66c6c0a0fa2ab1&query=${letitude},${longitude}`;
   request(
     {
       url,
@@ -14,7 +14,7 @@ const forCast = (letitude, longitude, cb) => {
       } else {
         cb(
           undefined,
-          `${body.current.weather_descriptions[0]} It is currently ${body.current.temperature} degress out.There is a ${body.current.precip} '% chance of rain.`
+          `${body.current.weather_descriptions[0]} It is currently ${body.current.temperature} degress out.There is a ${body.current.precip} '% chance of rain and humidity is ${body.current.humidity}.`
         );
       }
     }
